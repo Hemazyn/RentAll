@@ -6,16 +6,14 @@ import { BadgeDollarSign, Clock, Percent } from 'lucide-react';
 export default function VendorSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasAnimated) {
           setIsVisible(true);
-          if (entry.intersectionRatio > 0.1) {
-            setIsVisible(false);
-            setTimeout(() => setIsVisible(true), 100);
-          }
+          setHasAnimated(true);
         }
       },
       { threshold: 0.1 }
@@ -24,7 +22,7 @@ export default function VendorSection() {
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
-  }, []);
+  }, [hasAnimated]);
 
   return (
     <section ref={sectionRef} id="vendor" className="py-10 md:py-20 bg-white relative">

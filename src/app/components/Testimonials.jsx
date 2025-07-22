@@ -14,16 +14,14 @@ export default function Testimonials() {
   const [animation, setAnimation] = useState('animate__fadeInRight');
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasAnimated) {
           setIsVisible(true);
-          if (entry.intersectionRatio > 0.1) {
-            setIsVisible(false);
-            setTimeout(() => setIsVisible(true), 100);
-          }
+          setHasAnimated(true);
         }
       },
       { threshold: 0.1 }
@@ -32,9 +30,10 @@ export default function Testimonials() {
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
-  }, []);
+  }, [hasAnimated]);
 
   useEffect(() => {
+    if (!isVisible) return;
     const timer = setTimeout(() => {
       setAnimation('animate__fadeOutLeft');
       setTimeout(() => {
@@ -43,7 +42,7 @@ export default function Testimonials() {
       }, 400);
     }, 7000);
     return () => clearTimeout(timer);
-  }, [currentIndex]);
+  }, [currentIndex, isVisible]);
 
   const activeTestimonial = testimonials[currentIndex];
 
