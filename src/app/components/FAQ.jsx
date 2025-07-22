@@ -33,7 +33,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="faq" className="py-20 bg-gradient-to-br from-white via-[#fff0f3] to-[#ffe5ea] relative overflow-hidden">
+    <section ref={sectionRef} id="faq" className="py-10 md:py-20 bg-gradient-to-br from-white via-[#fff0f3] to-[#ffe5ea] relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-2 rounded-b-full bg-gradient-to-r from-[#E60023] via-[#ff4d6d] to-[#E60023] opacity-80"></div>
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">

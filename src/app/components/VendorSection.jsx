@@ -27,7 +27,7 @@ export default function VendorSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="vendor" className="py-20 bg-white relative">
+    <section ref={sectionRef} id="vendor" className="py-10 md:py-20 bg-white relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-2 rounded-b-full bg-gradient-to-r from-[#E60023] via-[#ff4d6d] to-[#E60023] opacity-80"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
