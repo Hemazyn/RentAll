@@ -6,7 +6,7 @@ import { Logo } from '../components';
 const navigation = [
   { name: 'About', href: '#about' },
   { name: 'Vendor', href: '#how-it-works' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'Faq', href: '#faq' },
 ];
 
 export default function Navigation() {
@@ -19,7 +19,7 @@ export default function Navigation() {
           <Logo />
           <div className="hidden md:flex flex-row items-center gap-10">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-white font-semibold cursor-pointer tracking-[0.1em] leading-8 hover:text-[#E60023] transition-colors duration-200 text-[16px] uppercase">
+              <a key={item.name} href={item.href} className="text-white font-semibold cursor-pointer tracking-[0.1em] leading-8 hover:text-[#E60023] transition-colors duration-200 text-[16px] capitalize">
                 {item.name}
               </a>
             ))}
@@ -42,7 +42,7 @@ export default function Navigation() {
       {isOpen && (
         <div className="md:hidden bg-gradient-to-b from-[#1a0007] via-[#E60023] to-[#2d0b13] flex flex-col items-center justify-center backdrop-blur-2xl px-4 pb-6 space-y-4 animate-slide-down fixed h-screen top-0 w-full">
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)} className="flex gap-4 text-white font-semibold tracking-widest leading-8 py-3 hover:text-[#E60023] transition-colors text-2xl uppercase">
+            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)} className="flex gap-4 text-white font-semibold tracking-widest leading-8 py-3 hover:text-[#E60023] transition-colors text-2xl capitalize">
               {item.name}
             </a>
           ))}
