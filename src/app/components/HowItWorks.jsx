@@ -29,7 +29,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="how-it-works" className="py-20 bg-gradient-to-br from-[#1a0007] via-[#2d0b13] to-[#E60023]/30">
+    <section ref={sectionRef} id="how-it-works" className="py-10 md:py-20 bg-gradient-to-br from-[#1a0007] via-[#2d0b13] to-[#E60023]/30">
       <div className="container mx-auto px-4">
         <h2 className={`text-3xl md:text-4xl font-extrabold text-white text-center mb-14 ${isVisible ? 'animate__animated animate__fadeInDown' : 'opacity-0'}`}>How RentAll Works</h2>
         <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">

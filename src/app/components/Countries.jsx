@@ -35,7 +35,7 @@ export default function Countries() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-20 bg-gradient-to-br from-[#1a0007] via-[#2d0b13] to-[#E60023]/30 overflow-hidden">
+    <section ref={sectionRef} className="relative py-10 md:py-20 bg-gradient-to-br from-[#1a0007] via-[#2d0b13] to-[#E60023]/30 overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] bg-[#E60023]/10 rounded-full blur-3xl z-0"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-14">

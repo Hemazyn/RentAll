@@ -26,7 +26,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 bg-gradient-to-br from-[#1a0007] via-[#2d0b13] to-[#E60023]/30 relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-10 md:py-24 bg-gradient-to-br from-[#1a0007] via-[#2d0b13] to-[#E60023]/30 relative overflow-hidden">
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-[#E60023]/20 rounded-full blur-3xl z-0"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">

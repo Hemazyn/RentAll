@@ -34,7 +34,7 @@ export default function Categories() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="categories" className="relative py-20 bg-white">
+    <section ref={sectionRef} id="categories" className="relative py-10 md:py-20 bg-white">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-2 rounded-b-full bg-gradient-to-r from-[#E60023] via-[#ff4d6d] to-[#E60023] opacity-80"></div>
       <div className="container mx-auto px-4 relative z-10">
         <h2 className={`text-3xl md:text-4xl font-extrabold text-[#1a0007] text-center mb-12 ${isVisible ? 'animate__animated animate__fadeInDown' : 'opacity-0'}`}>
