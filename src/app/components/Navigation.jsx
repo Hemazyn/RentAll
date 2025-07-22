@@ -1,68 +1,61 @@
 'use client';
-import { Fragment } from 'react';
-import { Disclosure, Transition } from '@headlessui/react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Logo } from '../components';
 
 const navigation = [
-  { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Categories', href: '#categories' },
-  { name: 'Features', href: '#features' },
-  { name: 'Testimonials', href: '#testimonials' },
+  { name: 'About', href: '#about' },
+  { name: 'Vendor', href: '#how-it-works' },
   { name: 'FAQ', href: '#faq' },
 ];
 
 export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Disclosure as="nav" className="bg-transparent backdrop-blur-2xl fixed top-0 z-50 w-full">
-      {({ open }) => (
-        <>
-          <div className="mx-auto max-w-7xl px-4 sm:px-8">
-            <div className="flex h-20 items-center justify-between">
-              <div className="flex-shrink-0 flex items-center">
-                <span className="text-2xl md:text-3xl font-extrabold text-[#E60023] tracking-tight drop-shadow-sm cursor-pointer">RentAll</span>
-              </div>
-              <div className="hidden md:flex md:items-center md:space-x-5">
-                {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="text-white font-medium hover:text-[#E60023] text-xs transition-colors duration-200 textlg">
-                    {item.name}
-                  </a>
-                ))}
-                <div className="flex flex-row gap-2">
-                  <a href="#" className="bg-[#E60023] hover:bg-[#b8001a] text-white cursor-pointer px-3 py-1.5 text-center rounded-full h10 font-semibold shadow transition text-sm">
-                    iOS
-                  </a>
-                  <a href="#" className="border-2 border-white cursor-pointer text-white hover:bg-white/10 px-3 py-1.5 rounded-full font-semibold transition text-sm">
-                    Android
-                  </a>
-                </div>
-              </div>
-              <div className="flex md:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#E60023]">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? <X className="block h-7 w-7" aria-hidden="true" /> : <Menu className="block h-7 w-7" aria-hidden="true" />}
-                </Disclosure.Button>
-              </div>
-            </div>
+    <nav className="bg-transparent backdrop-blur-2xl fixed top-0 z-50 w-full">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="flex h-20 items-center justify-between">
+          <Logo />
+          <div className="hidden md:flex flex-row items-center gap-10">
+            {navigation.map((item) => (
+              <a key={item.name} href={item.href} className="text-white font-semibold cursor-pointer tracking-[0.1em] leading-8 hover:text-[#E60023] transition-colors duration-200 text-[16px] uppercase">
+                {item.name}
+              </a>
+            ))}
           </div>
-          <Transition as={Fragment} enter="transition ease-out duration-200" enterFrom="opacity-0 -translate-y-2" enterTo="opacity-100 translate-y-0" leave="transition ease-in duration-150" leaveFrom="opacity-100 translate-y-0" leaveTo="opacity-0 -translate-y-2">
-            <Disclosure.Panel className="md:hidden bg-gradient-to-b from-[#1a0007]/90 via-[#E60023]/80 to-[#2d0b13]/90 backdrop-blur-2xl">
-              <div className="space-y-1 px-4 pt-4 pb-3">
-                {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="block text-white font-medium py-2 hover:text-[#E60023] transition-colors text-lg">
-                    {item.name}
-                  </a>
-                ))}
-                <a href="#" className="block w-full text-center bg-[#E60023] text-white px-5 py-2 rounded-full font-semibold my-2 text-lg">
-                  iOS
-                </a>
-                <a href="#" className="block w-full text-center border-2 border-white text-white px-5 py-2 rounded-full font-semibold text-lg">
-                  Android
-                </a>
-              </div>
-            </Disclosure.Panel>
-          </Transition>
-        </>
+          <div className="hidden md:flex flex-row gap-3 items-center">
+            <a href="#" className="bg-[#E60023] hover:bg-[#b8001a] text-white py-2 px-5 rounded-full w-30 text-center font-semibold shadow transition text-sm tracking-wide leading-6">
+              iOS
+            </a>
+            <a href="#" className="bg-white text-primary hover:bg-white/10 py-2 px-5 rounded-full w-30 text-center font-semibold transition text-sm tracking-wide leading-6">
+              Android
+            </a>
+          </div>
+          <div className="flex md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10 focus:outline-none">
+              {isOpen ? <X className="h-7 w-7 z-50" /> : <Menu className="h-7 w-7" />}
+            </button>
+          </div>
+        </div>
+      </div>
+      {isOpen && (
+        <div className="md:hidden bg-gradient-to-b from-[#1a0007] via-[#E60023] to-[#2d0b13] flex flex-col items-center justify-center backdrop-blur-2xl px-4 pb-6 space-y-4 animate-slide-down fixed h-screen top-0 w-full">
+          {navigation.map((item) => (
+            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)} className="flex gap-4 text-white font-semibold tracking-widest leading-8 py-3 hover:text-[#E60023] transition-colors text-2xl uppercase">
+              {item.name}
+            </a>
+          ))}
+          <div className="flex flex-row w-full justify-center gap-4 mt-6 items-center">
+            <a href="#" className="text-center bg-[#E60023] text-white px-5 py-3 rounded-full w-full font-semibold text-base tracking-wide">
+              iOS
+            </a>
+            <a href="#" className="text-center bg-white text-primary px-5 py-3 rounded-full w-full font-semibold text-base tracking-wide">
+              Android
+            </a>
+          </div>
+        </div>
       )}
-    </Disclosure>
+    </nav>
   );
 }
