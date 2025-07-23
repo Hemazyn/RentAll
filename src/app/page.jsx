@@ -8,11 +8,11 @@ export default function Home() {
         <Hero />
         <Categories />
         <HowItWorks />
-        <VendorSection />
         <Countries />
         <Testimonials />
+        {/* <VendorSection /> */}
         <FAQ />
-        <About />
+        {/* <About /> */}
         <HeroSection />
       </main>
       <Footer />

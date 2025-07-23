@@ -66,10 +66,6 @@ export default function FeaturesGrid() {
                 <p className="text-[#2d0b13]/50 text-xs md:text-sm mb-4">{feature.description}</p>
               </div>
               <img src={feature.image} alt={feature.title} className="object-contain fixed top-[30%] lg:top-[20%] right-0 w-full md:w-4/5" />
-              <a href="#" className="">
-                <ArrowRight size={10} className="inline mr-2" />
-                <span className="font-poppins font-medium text-gray-700 text-xs md:text-lg hover:text-primary">Learn More</span>
-              </a>
             </div>
           ))}
         </div>
