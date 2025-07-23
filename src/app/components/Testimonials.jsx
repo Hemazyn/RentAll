@@ -47,7 +47,7 @@ export default function TestimonialsMarquee() {
       </div>
       <style jsx>{`
         .marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 3s linear infinite;
         }
         @keyframes marquee {
           0% {
@@ -59,7 +59,7 @@ export default function TestimonialsMarquee() {
         }
         @media (max-width: 640px) {
           .marquee {
-            animation-duration: 18s;
+            animation-duration: 1.5s;
           }
         }
       `}</style>
