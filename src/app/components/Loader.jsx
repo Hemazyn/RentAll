@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-const greetings = ['Hello', 'Hola', 'Bonjour', 'Hallo', 'Ciao', 'Olá', 'Привет', '你好', 'こんにちは', '안녕하세요', 'مرحبا'];
+const greetings = ['Car', 'Apartment', 'Equipment', 'Services', 'RentAll'];
 
 export default function Loader() {
   const [index, setIndex] = useState(0);
