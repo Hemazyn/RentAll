@@ -35,8 +35,8 @@ export default function Countries() {
   }, [hasAnimated]);
 
   return (
-    <section ref={sectionRef} className="relative py-10 md:py-20 bg-gradient-to-br from-[#ffe5ea] via-[#fff0f3] to-[#ffe5ea] overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] bg-[#E60023]/10 rounded-full blur-3xl z-0"></div>
+    <section ref={sectionRef} className="relative py-10 md:py-20 overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] rounded-full blur-3xl z-0"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-5 md:mb-14">
           <h2 className={`text-xl md:text-4xl font-semibold md:font-extrabold text-black mb-2 md:mb-4 ${isVisible ? 'animate__animated animate__fadeInDown' : 'opacity-0'}`}>Available Where You Are</h2>

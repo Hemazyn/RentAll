@@ -10,14 +10,14 @@ const navigation = [
   { name: 'Faq', href: '/#faq' },
 ];
 
-export default function Navigation({ textColor = 'text-white', androidButtonClass = 'bg-white text-primary hover:bg-white/10' }) {
+export default function Navigation({ logoColor = 'text-white', textColor = 'text-white', androidButtonClass = 'bg-white text-primary hover:bg-white/10' }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Logo />
+          <Logo logoColor={logoColor} />
           <div className="hidden md:flex flex-row items-center gap-10">
             {navigation.map((item) => (
               <a key={item.name} href={item.href} className={`${textColor} font-semibold cursor-pointer tracking-[0.1em] leading-8 hover:text-[#E60023] transition-colors duration-200 text-[16px] capitalize`}>
@@ -35,15 +35,15 @@ export default function Navigation({ textColor = 'text-white', androidButtonClas
           </div>
           <div className="flex md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center justify-center rounded-md p-2 hover:bg-white/10 focus:outline-none" aria-expanded={isOpen}>
-              {isOpen ? <X className="h-7 w-7 z-50 text-gray-900" /> : <Menu className="h-7 w-7 text-primary rounded-md px-0.5" />}
+              {isOpen ? <X className="h-7 w-7 z-50 text-gray-900 fixed" /> : <Menu className="h-7 w-7 text-primary rounded-md px-0.5" />}
             </button>
           </div>
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden bg-white flex flex-col items-center justify-center backdrop-blur-2xl space-y-4 animate-slide-down fixed h-[60vh] top-0 left-0 z-40 w-full">
+        <div className="md:hidden bg-white flex flex-col items-center justify-center backdrop-blur-2xl space-y-4 animate-slide-down fixed h-screen top-0 left-0 z-40 w-full">
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)} className={`flex gap-4 text-gray-800 font-medium tracking-widest leading-8 py-3 hover:text-[#E60023] transition-colors text-lg capitalize ${textColor === 'text-black' ? 'text-black' : 'text-gray-800'}`}>
+            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)} cclassName={`flex gap-4 text-gray-800 font-medium tracking-widest leading-8 py-3 hover:text-[#E60023] transition-colors text-lg capitalize ${textColor === 'text-black' ? 'text-black' : 'text-gray-800'}`}>
               {item.name}
             </a>
           ))}

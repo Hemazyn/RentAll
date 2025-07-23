@@ -2,9 +2,11 @@ import { Footer, Navigation } from '../components';
 import HeroSection from '../components/HeroSection';
 
 export default function page() {
+  const specificLogoColor = 'text-[#E60023]';
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
-      <Navigation textColor="text-gray-800" androidButtonClass="bg-white border border-primary text-primary" />
+      <Navigation logoColor={specificLogoColor} textColor="text-gray-800" androidButtonClass="bg-white border border-primary text-primary" />
       <main className="flex-grow mx-auto px-4 py-4 md:py-10 max-w-3xl">
         <h1 className="text-xl md:text-4xl font-extrabold text-gray-900 mb-2 md:mb-8">Privacy Policy</h1>
         <section className="mb-3 md:mb-10">
