@@ -62,7 +62,7 @@ export default function FAQ() {
             {faqs.map((faq, index) => (
               <div key={index} className={`bg-white/80 border border-[#E60023]/10 rounded-2xl transition-all duration-300 ${isVisible ? `animate__animated animate__fadeInUp ${index === 0 ? 'animate__delay-0-5s' : index === 1 ? 'animate__delay-0-7s' : 'animate__delay-0-9s'}` : 'opacity-0'}`} style={{ backdropFilter: 'blur(6px)' }}>
                 <button onClick={() => setOpenIndex(openIndex === index ? null : index)} className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none group" aria-expanded={openIndex === index} aria-controls={`faq-answer-${index}`}>
-                  <span className="font-medium text-black text-base md:text-lg group-hover:underline">{faq.question}</span>
+                  <span className="font-medium text-gray-800 text-base md:text-lg group-hover:underline">{faq.question}</span>
                   <ChevronDown className={`w-5 h-5 text-[#E60023] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} />
                 </button>
                 <div id={`faq-answer-${index}`} className={`px-6 overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'}`} aria-hidden={openIndex !== index}>
